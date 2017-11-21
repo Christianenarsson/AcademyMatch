@@ -24,38 +24,38 @@ function swipeNo() {
         alert('There was a problem with the request.');
     }
     httpRequest.onreadystatechange = personController;
-    httpRequest.open('GET', '/swipeNo');
-    httpRequest.send();
+    httpRequest.open('GET', '/swipeNo', true);
+    httpRequest.send(null);
 }
 
 function swipeYes() {
     httpRequest = new XMLHttpRequest();
     if (!httpRequest) {
-        alert('There was a problem with the request.');
+        console.log('There was a problem making the request.');
     }
     httpRequest.onreadystatechange = personController;
-    httpRequest.open('GET', '/swipeYes');
-    httpRequest.send();
+    httpRequest.open('GET', '/swipeYes', true);
+    httpRequest.send(null);
 }
 
 function personController() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
         if (httpRequest.status === 200) {
             var pString = httpRequest.responseText;
-            var pArray = pString.split(":");
+            var pArray = pString.split(";");
             if (pArray[0] == "final") {
                 document.location.href = "/final";
             } else {
+                name = pArray[0];
+                born = pArray[1];
+                text = pArray[2];
+                img = pArray[3];
+                title.innerHTML = name + " " + born;
+                image.src = img;
+                brodtxt.innerHTML = text;
             }
-            name = pArray[0];
-            born = pArray[1];
-            text = pArray[2];
-            img = pArray[3];
-            title.innerHTML = name + " " + born;
-            image.src = img;
-            brodtxt.innerHTML = text;
+        } else {
+            console.log('There was a problem receiving the request.');
         }
-    } else {
-        alert('There was a error.');
     }
 }

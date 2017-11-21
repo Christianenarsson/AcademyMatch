@@ -64,11 +64,15 @@ public class MatchController {
 
     public String getNextPerson (HttpSession session){
         Queue<Person> queuePerson = (Queue<Person>) session.getAttribute("persons");
-        Person currentPerson = queuePerson.remove();
-        session.setAttribute("current", currentPerson);
+        String returncurrentPerson;
+        if (queuePerson.isEmpty()) {
+            return "final";
+        } else {
+            Person currentPerson = queuePerson.remove();
+            session.setAttribute("current", currentPerson);
 
-        String returncurrentPerson = currentPerson.getName() +  ":" + currentPerson.getBorn() + ":" + currentPerson.getPresentation() + ":" + currentPerson.getImgLink() ;
-
+            returncurrentPerson = currentPerson.getName() + ";" + currentPerson.getBorn() + ";" + currentPerson.getPresentation() + ";" + currentPerson.getImgLink();
+        }
         return returncurrentPerson;
     }
 }
