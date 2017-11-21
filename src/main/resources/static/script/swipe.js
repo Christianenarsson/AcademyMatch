@@ -6,7 +6,7 @@ var title = document.getElementById("namn");
 var brodtxt = document.getElementById("brodtext");
 var img;
 var name;
-var age;
+var born;
 var text;
 var httpRequest;
 
@@ -43,13 +43,17 @@ function personController() {
         if (httpRequest.status === 200) {
             var pString = httpRequest.responseText;
             var pArray = pString.split(":");
+            if (pArray[0] == "final") {
+                document.location.href = "/final";
+            } else {}
             name = pArray[0];
-            age = pArray[1];
+            born = pArray[1];
             text = pArray[2];
             img = pArray[3];
             title.innerHTML = name + " " + age;
             image.src = img;
             brodtxt.innerHTML = text;
+        }
         } else {
             alert('There was a problem with the request.');
         }

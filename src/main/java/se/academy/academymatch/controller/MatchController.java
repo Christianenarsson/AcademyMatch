@@ -7,6 +7,7 @@ import se.academy.academymatch.domain.Person;
 import se.academy.academymatch.repository.Repository;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
@@ -26,9 +27,8 @@ public class MatchController {
     @GetMapping ("/start")
     public ModelAndView start (HttpSession session) {
         if (session.getAttribute("persons") == null) {
-            session.setAttribute("persons",repository.createPool());
-            session.setAttribute("chosen", new List<Person>);
-
+            session.setAttribute("persons", repository.createPool());
+            session.setAttribute("chosen", new ArrayList<Person>());
         }
         if (session.getAttribute("current") == null) {
             Queue<Person> persons = (Queue<Person>) session.getAttribute("persons");
