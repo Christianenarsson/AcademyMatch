@@ -1,6 +1,6 @@
 var noBtn = document.getElementById("nobtn");
 var yesBtn = document.getElementById("yesbtn");
-var menuBtn = document.getElementById("menubtn");
+//var menuBtn = document.getElementById("menubtn");
 var image = document.getElementById("image");
 var title = document.getElementById("namn");
 var brodtxt = document.getElementById("brodtext");
@@ -12,7 +12,7 @@ var httpRequest;
 
 noBtn.addEventListener("click", swipeNo);
 yesBtn.addEventListener("click", swipeYes);
-menuBtn.addEventListener("click", menu);
+//menuBtn.addEventListener("click", menu);
 
 function menu() {
 
@@ -45,7 +45,7 @@ function personController() {
             var pArray = pString.split(":");
             if (pArray[0] == "final") {
                 document.location.href = "/final";
-            } else {}
+            } else { }
             name = pArray[0];
             born = pArray[1];
             text = pArray[2];
@@ -54,8 +54,7 @@ function personController() {
             image.src = img;
             brodtxt.innerHTML = text;
         }
-        } else {
-            alert('There was a problem with the request.');
-        }
+    } else {
+        alert('There was a problem with the request.');
     }
 }
