@@ -40,7 +40,7 @@ public class MatchController {
             Queue<Person> persons = (Queue<Person>) session.getAttribute("persons");
             session.setAttribute("current", persons.remove());
         }
-        return new ModelAndView("swipe");
+        return new ModelAndView("swipe").addObject("person", session.getAttribute("current"));
     }
 
     @GetMapping ("/swipeNo")
