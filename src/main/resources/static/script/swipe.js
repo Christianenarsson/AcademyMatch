@@ -1,9 +1,9 @@
-var noBtn = document.getElementsByTagName("nobtn");
-var yesBtn = document.getElementsByTagName("yesbtn");
+var noBtn = document.getElementById("nobtn");
+var yesBtn = document.getElementById("yesbtn");
 //var menuBtn = document.getElementById("menubtn");
 var image = document.getElementById("image");
 var title = document.getElementById("namn");
-var brodtxt = document.getElementById("brodtext");
+var brodtxt = document.getElementById("brodtxt");
 var img;
 var name;
 var born;
@@ -51,11 +51,11 @@ function personController() {
             born = pArray[1];
             text = pArray[2];
             img = pArray[3];
-            title.innerHTML = name + " " + age;
+            title.innerHTML = name + " " + born;
             image.src = img;
             brodtxt.innerHTML = text;
         }
     } else {
-        alert('There was a problem with the request.');
+        alert('There was a error.');
     }
 }
