@@ -14,6 +14,7 @@ import java.util.Queue;
 public class MatchController {
 
     private Repository repository;
+
     public MatchController() {
         repository = new Repository();
     }
