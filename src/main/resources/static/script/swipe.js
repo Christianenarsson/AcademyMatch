@@ -1,5 +1,5 @@
-var noBtn = document.getElementById("nobtn");
-var yesBtn = document.getElementById("yesbtn");
+var noBtn = document.getElementsByTagName("nobtn");
+var yesBtn = document.getElementsByTagName("yesbtn");
 //var menuBtn = document.getElementById("menubtn");
 var image = document.getElementById("image");
 var title = document.getElementById("namn");
