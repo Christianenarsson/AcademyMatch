@@ -12,8 +12,6 @@ import java.util.Queue;
 
 @Component
 public class Repository {
-    public Queue<Person> createPool() throws SQLException{
-
     @Autowired
     private DataSource dataSource;
 
