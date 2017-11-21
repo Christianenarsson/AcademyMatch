@@ -9,7 +9,6 @@ public class Repository {
     private Queue<Person> pool;
 
     public Queue<Person> createPool() throws SQLException{
-        String connstr = "jdbc:sqlserver://185.21.146.24;databasename=Northwind;user=AcademyProject2;password=SdfrewrxEW3sdqqw";
         Connection dbconn = null;
         Statement stmt = null;
         String query =

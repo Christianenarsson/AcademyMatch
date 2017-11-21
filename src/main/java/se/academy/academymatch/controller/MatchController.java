@@ -31,7 +31,7 @@ public class MatchController {
     @GetMapping ("/start")
     public ModelAndView start (HttpSession session) {
         if (session.getAttribute("persons") == null) {
-            session.setAttribute("persons",repository.createPool());
+            session.setAttribute("persons", repository.createPool());
             session.setAttribute("chosen", new ArrayList<Person>());
         }
         if (session.getAttribute("current") == null) {
