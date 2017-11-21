@@ -21,7 +21,7 @@ public class Repository {
         Statement stmt;
         String query =
                 "SELECT  *" +
-                        "FROM Academy_Projekt2.dbo.person";
+                        "FROM Academy_Projekt2.dbo.person ORDER BY NEWID()";
 
         try {
             dbconn = dataSource.getConnection();
