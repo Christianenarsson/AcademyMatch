@@ -45,7 +45,8 @@ function personController() {
             var pArray = pString.split(":");
             if (pArray[0] == "final") {
                 document.location.href = "/final";
-            } else { }
+            } else {
+            }
             name = pArray[0];
             born = pArray[1];
             text = pArray[2];
@@ -57,3 +58,4 @@ function personController() {
     } else {
         alert('There was a problem with the request.');
     }
+}
