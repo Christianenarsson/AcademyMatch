@@ -32,7 +32,6 @@ public class MatchController {
         if (session.getAttribute("persons") == null) {
             session.setAttribute("persons",repository.createPool());
             session.setAttribute("chosen", new ArrayList<Person>());
-
         }
         if (session.getAttribute("current") == null) {
             Queue<Person> persons = (Queue<Person>) session.getAttribute("persons");
