@@ -65,7 +65,7 @@ public class MatchController {
         Person currentPerson = queuePerson.remove();
         session.setAttribute("current", currentPerson);
 
-        String returncurrentPerson = currentPerson.getName() +  ":" + currentPerson.getBorn() + ":" + currentPerson.getText() + ":" + currentPerson.getImage() ;
+        String returncurrentPerson = currentPerson.getName() +  ":" + currentPerson.getBorn() + ":" + currentPerson.getPresentation() + ":" + currentPerson.getImgLink() ;
 
         return returncurrentPerson;
     }

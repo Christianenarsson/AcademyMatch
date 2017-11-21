@@ -1,22 +1,26 @@
 package se.academy.academymatch.repository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import se.academy.academymatch.domain.Person;
 
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.Queue;
 
 public class Repository {
     private Queue<Person> pool;
 
-    public Queue<Person> createPool() throws SQLException{
-        String connstr = "jdbc:sqlserver://185.21.146.24;databasename=Northwind;user=AcademyProject2;password=SdfrewrxEW3sdqqw";
+    @Autowired
+    private DataSource dataSource;
+
+    public Queue<Person> createPool()  {
         Connection dbconn = null;
-        Statement stmt = null;
+        Statement stmt;
         String query =
                 "SELECT  *" +
                         "FROM Academy_Projekt2.dbo.person";
 
-        try { dbconn = DriverManager.getConnection(connstr);
+        try {dbconn = dataSource.getConnection();
             stmt = dbconn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
@@ -38,7 +42,11 @@ public class Repository {
         }
         finally {
             if(dbconn!=null)
-                dbconn.close();
+                try {
+                    dbconn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
         }
         return pool;
 
