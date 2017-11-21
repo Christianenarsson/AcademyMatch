@@ -12,8 +12,6 @@ import java.util.Queue;
 
 @Component
 public class Repository {
-
-
     @Autowired
     private DataSource dataSource;
 
