@@ -1,26 +1,32 @@
 package se.academy.academymatch.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import se.academy.academymatch.domain.Person;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.util.LinkedList;
 import java.util.Queue;
 
+
+@Component
 public class Repository {
-    private Queue<Person> pool;
+
 
     @Autowired
     private DataSource dataSource;
 
     public Queue<Person> createPool()  {
+        Queue<Person> pool = new LinkedList<>();
         Connection dbconn = null;
         Statement stmt;
         String query =
                 "SELECT  *" +
                         "FROM Academy_Projekt2.dbo.person";
 
-        try {dbconn = dataSource.getConnection();
+        try {
+            dbconn = dataSource.getConnection();
             stmt = dbconn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
