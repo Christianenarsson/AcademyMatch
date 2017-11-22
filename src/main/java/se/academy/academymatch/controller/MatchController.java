@@ -8,13 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 import se.academy.academymatch.domain.Person;
 import se.academy.academymatch.repository.Repository;
 
-import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
-
-import static javax.swing.text.html.CSS.getAttribute;
 
 @Controller
 public class MatchController {
@@ -89,7 +86,7 @@ public class MatchController {
             Person currentPerson = queuePerson.remove();
             session.setAttribute("current", currentPerson);
 
-            returncurrentPerson = currentPerson.getName() + ";" + currentPerson.getBorn() + ";" +
+            returncurrentPerson = currentPerson.getName() + ";" + currentPerson.getAge() + ";" +
                     currentPerson.getPresentation() + ";" + currentPerson.getImgLink() + ";" +
                     ((List<Person>) session.getAttribute("chosen")).size();
         }
