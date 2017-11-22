@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import se.academy.academymatch.domain.Commons;
 import se.academy.academymatch.domain.Person;
-import se.academy.academymatch.domain.Preference;
 import se.academy.academymatch.repository.Repository;
 
 import javax.servlet.http.HttpSession;
@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Queue;
 
 @Controller
-public class MatchController {
+public class MatchController implements Commons{
 
     @Autowired
     private Repository repository;
@@ -28,15 +28,15 @@ public class MatchController {
 
     @GetMapping ("/")
     public ModelAndView index() {
-        List<Preference> preferences = new ArrayList<>();
-        preferences.add(Preference.Java);
-        preferences.add(Preference.JavaScript);
-        preferences.add(Preference.HTMLCSS);
-        preferences.add(Preference.UX);
-        preferences.add(Preference.Databases);
-        preferences.add(Preference.ProjectManagement);
+        List<String> commons = new ArrayList<>();
+        commons.add(Java);
+        commons.add(JavaScript);
+        commons.add(HTMLCSS);
+        commons.add(UX);
+        commons.add(Databases);
+        commons.add(ProjectManagement);
 
-        return new ModelAndView("index").addObject("preferences", preferences);
+        return new ModelAndView("index").addObject("commons", commons);
     }
 
     @PostMapping("/setPref")

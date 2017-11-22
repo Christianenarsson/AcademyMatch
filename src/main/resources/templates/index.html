@@ -8,8 +8,8 @@
             <div class = "huvudblock">
                 <h2 id = "startrubrik" >VÄLJ DINA FAVVISAR!</h2>
                 <div class="form-group row">
-                    <select class="form-control" id="preferences" name="preferences">
-                        <option th:each="pref : ${preferences}"
+                    <select class="form-control" id="commons" name="commons">
+                        <option th:each="pref : ${commons}"
                             th:value="${pref}"
                             th:text="${pref}"/>
                     </select>
