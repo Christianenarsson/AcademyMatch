@@ -75,6 +75,11 @@ public class MatchController {
         return new ModelAndView("loading");
     }
 
+    @GetMapping ("/intro")
+    public ModelAndView intro (HttpSession session){
+        return new ModelAndView("intro");
+    }
+
     public String getNextPerson (HttpSession session){
         Queue<Person> queuePerson = (Queue<Person>) session.getAttribute("persons");
         String returncurrentPerson;
