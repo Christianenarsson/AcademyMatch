@@ -109,10 +109,10 @@ public class MatchController implements Commons{
         } else {
             Person currentPerson = queuePerson.remove();
             session.setAttribute("current", currentPerson);
-
-            returncurrentPerson = currentPerson.getName() + ";" + currentPerson.getAge() + ";" +
-                    currentPerson.getPresentation() + ";" + currentPerson.getImgLink() + ";" +
-                    ((List<Person>) session.getAttribute("chosen")).size();
+            
+            returncurrentPerson = "{ \"name\": \"" + currentPerson.getName() + "\", \"age\": \"" + currentPerson.getAge() +
+                    "\", \"klass\": \"" + currentPerson.getKlass() + "\", \"text\": \"" + currentPerson.getPresentation() + "\", \"img\": \"" + currentPerson.getImgLink() +
+                    "\", \"chosen\": \"" + ((List<Person>) session.getAttribute("chosen")).size() + "\" }";
         }
         return returncurrentPerson;
     }
