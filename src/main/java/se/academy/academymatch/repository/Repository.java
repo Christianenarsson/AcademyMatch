@@ -28,7 +28,7 @@ public class Repository {
                     "SELECT  *" +
                             "FROM Academy_Projekt2.dbo.person " +
                             "WHERE Preference" + level + " = ? " +
-                            "ORDER BY NEWID()";
+                            "ORDER BY CASE WHEN id = 5 THEN 1 ELSE 2 END, NEWID()";
 
             try {
                 dbconn = dataSource.getConnection();
@@ -63,7 +63,7 @@ public class Repository {
             }
         }
 
-        String query4 =
+        String query =
                 "SELECT  *" +
                         "FROM Academy_Projekt2.dbo.person " +
                         "WHERE Preference1 != ? " +
@@ -73,7 +73,7 @@ public class Repository {
 
         try {
             dbconn = dataSource.getConnection();
-            sth = dbconn.prepareStatement(query4);
+            sth = dbconn.prepareStatement(query);
             sth.setString(1, preference);
             sth.setString(2, preference);
             sth.setString(3, preference);
