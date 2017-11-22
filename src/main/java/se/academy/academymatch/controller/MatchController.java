@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import se.academy.academymatch.domain.Person;
 import se.academy.academymatch.repository.Repository;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,8 @@ public class MatchController {
     }
 
     @GetMapping ("/start")
-    public ModelAndView start (HttpSession session) {
+    @ResponseBody
+    public String start (HttpSession session) {
         if (session.getAttribute("persons") == null) {
             session.setAttribute("persons", repository.createPool());
             session.setAttribute("chosen", new ArrayList<Person>());
@@ -40,6 +42,12 @@ public class MatchController {
             Queue<Person> persons = (Queue<Person>) session.getAttribute("persons");
             session.setAttribute("current", persons.remove());
         }
+        return "done";
+    }
+
+    @GetMapping("/swipe")
+    public ModelAndView swipe (HttpSession session) {
+
         return new ModelAndView("swipe").addObject("person", session.getAttribute("current"));
     }
 
@@ -53,7 +61,7 @@ public class MatchController {
     @GetMapping ("/swipeYes")
     @ResponseBody
     public String swipeYes(HttpSession session){
-        session.setAttribute("chosen", session.getAttribute("current"));
+        ((List<Person>) session.getAttribute("chosen")).add((Person) session.getAttribute("current"));
         return getNextPerson(session);
     }
 
@@ -76,7 +84,9 @@ public class MatchController {
             Person currentPerson = queuePerson.remove();
             session.setAttribute("current", currentPerson);
 
-            returncurrentPerson = currentPerson.getName() + ";" + currentPerson.getBorn() + ";" + currentPerson.getPresentation() + ";" + currentPerson.getImgLink();
+            returncurrentPerson = currentPerson.getName() + ";" + currentPerson.getBorn() + ";" +
+                    currentPerson.getPresentation() + ";" + currentPerson.getImgLink() + ";" +
+                    ((List<Person>) session.getAttribute("chosen")).size();
         }
         return returncurrentPerson;
     }
