@@ -6,6 +6,7 @@ var title = document.getElementById("namn");
 var brodtxt = document.getElementById("brodtxt");
 var chosenTxt = document.getElementById("chosen");
 var audio = new Audio('/sounds/waterdrop.wav');
+var canSwipe = true;
 var img;
 var name;
 var age;
@@ -21,24 +22,32 @@ function menu() {
 }
 
 function swipeNo() {
-    httpRequest = new XMLHttpRequest();
-    if (!httpRequest) {
-        console.log('There was a problem making the request.');
+    if (canSwipe) {
+        canSwipe = false;
+        timeoutID = window.setTimeout(swipable, 400);
+        httpRequest = new XMLHttpRequest();
+        if (!httpRequest) {
+            console.log('There was a problem making the request.');
+        }
+        httpRequest.onreadystatechange = personController;
+        httpRequest.open('GET', '/swipeNo', true);
+        httpRequest.send(null);
     }
-    httpRequest.onreadystatechange = personController;
-    httpRequest.open('GET', '/swipeNo', true);
-    httpRequest.send(null);
 }
 
 function swipeYes() {
-    audio.play();
-    httpRequest = new XMLHttpRequest();
-    if (!httpRequest) {
-        console.log('There was a problem making the request.');
+    if (canSwipe) {
+        audio.play();
+        canSwipe = false;
+        timeoutID = window.setTimeout(swipable, 400);
+        httpRequest = new XMLHttpRequest();
+        if (!httpRequest) {
+            console.log('There was a problem making the request.');
+        }
+        httpRequest.onreadystatechange = personController;
+        httpRequest.open('GET', '/swipeYes', true);
+        httpRequest.send(null);
     }
-    httpRequest.onreadystatechange = personController;
-    httpRequest.open('GET', '/swipeYes', true);
-    httpRequest.send(null);
 }
 
 function personController() {
@@ -63,4 +72,8 @@ function personController() {
             console.log('There was a problem receiving the request.');
         }
     }
+}
+
+function swipable() {
+    canSwipe = true;
 }

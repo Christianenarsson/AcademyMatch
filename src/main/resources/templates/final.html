@@ -7,9 +7,7 @@
     <body>
         <div class = "huvudblock">
             <ul>
-                <li>Angelica Nordqvist</li>
-                <li>Oskar</li>
-                <li>Tomas</li>
+                <li th:each = "person : ${chosen}" th:text="${person.name}"></li>
             </ul>
             <p id="txt"></p>
             <button id="backbtn" class = "btn">BACK</button>
