@@ -4,17 +4,17 @@ public class Person {
     private int id;
     private String firstName;
     private String lastName;
-    private int born;
+    private int age;
     private String klass;
     private String presentation;
     private String imgLink;
     private String status;
 
-    public Person(int id, String firstName, String lastName, int born, String klass, String presentation, String imgLink, String status) {
+    public Person(int id, String firstName, String lastName, int age, String klass, String presentation, String imgLink, String status) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.born = born;
+        this.age = age;
         this.klass = klass;
         this.presentation = presentation;
         this.imgLink = imgLink;
@@ -49,12 +49,12 @@ public class Person {
         return firstName + " " + lastName;
     }
 
-    public int getBorn() {
-        return born;
+    public int getAge() {
+        return age;
     }
 
-    public void setBorn(int age) {
-        this.born = age;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getKlass() {

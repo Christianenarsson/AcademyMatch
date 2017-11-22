@@ -7,7 +7,7 @@ var brodtxt = document.getElementById("brodtxt");
 var chosenTxt = document.getElementById("chosen");
 var img;
 var name;
-var born;
+var age;
 var text;
 var httpRequest;
 
@@ -48,11 +48,11 @@ function personController() {
                 document.location.href = "/final";
             } else {
                 name = pArray[0];
-                born = pArray[1];
+                age = pArray[1];
                 text = pArray[2];
                 img = pArray[3];
                 chosen = pArray[4];
-                title.innerHTML = name + " " + born;
+                title.innerHTML = name + " " + age;
                 image.src = img;
                 brodtxt.innerHTML = text;
                 chosenTxt.innerHTML = chosen;
