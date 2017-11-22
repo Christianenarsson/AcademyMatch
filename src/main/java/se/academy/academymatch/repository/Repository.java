@@ -19,25 +19,153 @@ public class Repository {
     public Queue<Person> createPool()  {
         Queue<Person> pool = new LinkedList<>();
         Connection dbconn = null;
-        Statement stmt;
+        PreparedStatement sth;
         String query =
                 "SELECT  *" +
-                        "FROM Academy_Projekt2.dbo.person ORDER BY NEWID()";
+                        "FROM Academy_Projekt2.dbo.person " +
+                        "WHERE Preference1 = ? " +
+                        "ORDER BY NEWID()";
 
         try {
             dbconn = dataSource.getConnection();
-            stmt = dbconn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
+            sth = dbconn.prepareStatement(query);
+            sth.setString(1, "Java");
+            ResultSet rs = sth.executeQuery();
             while (rs.next()) {
                 Person person = new Person
                         (rs.getInt("id"),
-                        rs.getString("firstname"),
-                        rs.getString("lastname"),
-                        Calendar.getInstance().get(Calendar.YEAR)-rs.getInt("born"),
-                        rs.getString("class"),
-                        rs.getString("presentation"),
-                        rs.getString("imglink"),
-                        rs.getString("status"));
+                                rs.getString("firstname"),
+                                rs.getString("lastname"),
+                                Calendar.getInstance().get(Calendar.YEAR)-rs.getInt("born"),
+                                rs.getString("class"),
+                                rs.getString("presentation"),
+                                rs.getString("imglink"),
+                                rs.getString("status"),
+                                rs.getString("preference1"),
+                                rs.getString("preference2"),
+                                rs.getString("preference3"));
+                pool.add(person);
+            }
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if(dbconn!=null)
+                try {
+                    dbconn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+
+        String query2 =
+                "SELECT  *" +
+                        "FROM Academy_Projekt2.dbo.person " +
+                        "WHERE Preference2 = ? " +
+                        "ORDER BY NEWID()";
+
+        try {
+            dbconn = dataSource.getConnection();
+            sth = dbconn.prepareStatement(query2);
+            sth.setString(1, "Java");
+            ResultSet rs = sth.executeQuery();
+            while (rs.next()) {
+                Person person = new Person
+                        (rs.getInt("id"),
+                                rs.getString("firstname"),
+                                rs.getString("lastname"),
+                                Calendar.getInstance().get(Calendar.YEAR)-rs.getInt("born"),
+                                rs.getString("class"),
+                                rs.getString("presentation"),
+                                rs.getString("imglink"),
+                                rs.getString("status"),
+                                rs.getString("preference1"),
+                                rs.getString("preference2"),
+                                rs.getString("preference3"));
+                pool.add(person);
+            }
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if(dbconn!=null)
+                try {
+                    dbconn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+        String query3 =
+                "SELECT  *" +
+                        "FROM Academy_Projekt2.dbo.person " +
+                        "WHERE Preference3 = ? " +
+                        "ORDER BY NEWID()";
+
+        try {
+            dbconn = dataSource.getConnection();
+            sth = dbconn.prepareStatement(query3);
+            sth.setString(1, "Java");
+            ResultSet rs = sth.executeQuery();
+            while (rs.next()) {
+                Person person = new Person
+                        (rs.getInt("id"),
+                                rs.getString("firstname"),
+                                rs.getString("lastname"),
+                                Calendar.getInstance().get(Calendar.YEAR)-rs.getInt("born"),
+                                rs.getString("class"),
+                                rs.getString("presentation"),
+                                rs.getString("imglink"),
+                                rs.getString("status"),
+                                rs.getString("preference1"),
+                                rs.getString("preference2"),
+                                rs.getString("preference3"));
+                pool.add(person);
+            }
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if(dbconn!=null)
+                try {
+                    dbconn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+        String query4 =
+                "SELECT  *" +
+                        "FROM Academy_Projekt2.dbo.person " +
+                        "WHERE Preference1 != ? " +
+                        "AND Preference2 != ? " +
+                        "AND Preference3 != ? " +
+                        "ORDER BY NEWID()";
+
+        try {
+            dbconn = dataSource.getConnection();
+            sth = dbconn.prepareStatement(query4);
+            sth.setString(1, "Java");
+            sth.setString(2, "Java");
+            sth.setString(3, "Java");
+            ResultSet rs = sth.executeQuery();
+            while (rs.next()) {
+                Person person = new Person
+                        (rs.getInt("id"),
+                                rs.getString("firstname"),
+                                rs.getString("lastname"),
+                                Calendar.getInstance().get(Calendar.YEAR)-rs.getInt("born"),
+                                rs.getString("class"),
+                                rs.getString("presentation"),
+                                rs.getString("imglink"),
+                                rs.getString("status"),
+                                rs.getString("preference1"),
+                                rs.getString("preference2"),
+                                rs.getString("preference3"));
                 pool.add(person);
             }
 
@@ -56,4 +184,7 @@ public class Repository {
         return pool;
 
     }
+
+
+
 }
