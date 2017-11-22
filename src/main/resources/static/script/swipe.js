@@ -5,6 +5,7 @@ var image = document.getElementById("image");
 var title = document.getElementById("namn");
 var brodtxt = document.getElementById("brodtxt");
 var chosenTxt = document.getElementById("chosen");
+var audio = new Audio('/sounds/waterdrop.wav');
 var img;
 var name;
 var age;
@@ -30,6 +31,7 @@ function swipeNo() {
 }
 
 function swipeYes() {
+    audio.play();
     httpRequest = new XMLHttpRequest();
     if (!httpRequest) {
         console.log('There was a problem making the request.');
