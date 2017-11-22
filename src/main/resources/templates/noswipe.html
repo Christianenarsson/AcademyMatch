@@ -10,14 +10,13 @@
         <button class="btn hamburgler" id="menubtn">-</button>
         <p id="chosen" th:text="${nrChosen}">0</p>
     <div id ="imgblock">
-        <img id = "image" th:src ="${person.imgLink}"/>
+        <img id = "image" src="/images/alot.png"/>
     </div>
-    <h1 id = "namn" th:text = "${person.name + ' ' + person.age}"> NAME OCH ÅLDER</h1>
-    <h2 id= "klass" th:text = "${person.klass}" >JAVAKLASSEN</h2>
-    <p id = "brodtxt" th:text = "${person.presentation}"> Här är det lite kort text om personen.</p>
+    <h1> Ingen kvar</h1>
+    <h2>Tryck på menyn för att komma tillbaka till listan</h2>
 </div>
 <button class = "btn" id="nobtn">NO</button>
 <button class = "btn" id="yesbtn">YES</button>
-<script type="text/javascript" src="/script/swipe.js"/>
+<script type="text/javascript" src="/script/noswipe.js"/>
 </body>
 </html>

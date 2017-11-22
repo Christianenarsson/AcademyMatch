@@ -34,7 +34,7 @@ public class MatchController {
         preferences.add(Preference.HTMLCSS);
         preferences.add(Preference.UX);
         preferences.add(Preference.Databases);
-        preferences.add(Preference.PojectManagement);
+        preferences.add(Preference.ProjectManagement);
 
         return new ModelAndView("index").addObject("preferences", preferences);
     }
@@ -62,8 +62,12 @@ public class MatchController {
 
     @GetMapping("/swipe")
     public ModelAndView swipe (HttpSession session) {
-
-        return new ModelAndView("swipe").addObject("person", session.getAttribute("current"));
+        if (session.getAttribute("current") != null) {
+            return new ModelAndView("swipe").addObject("person", session.getAttribute("current"))
+                    .addObject("nrChosen", (((List<Person>) session.getAttribute("chosen")).size()));
+        } else {
+            return new ModelAndView("noswipe").addObject("nrChosen", (((List<Person>) session.getAttribute("chosen")).size()));
+        }
     }
 
     @GetMapping ("/swipeNo")
@@ -82,7 +86,8 @@ public class MatchController {
 
     @GetMapping ("/final")
     public ModelAndView finalpage (HttpSession session){
-        return new ModelAndView("final");
+        List<Person> chosen = (List<Person>) session.getAttribute("chosen");
+        return new ModelAndView("final").addObject("chosen", chosen);
     }
 
     @GetMapping ("/loading")
@@ -99,6 +104,7 @@ public class MatchController {
         Queue<Person> queuePerson = (Queue<Person>) session.getAttribute("persons");
         String returncurrentPerson;
         if (queuePerson.isEmpty()) {
+            session.setAttribute("current", null);
             return "final";
         } else {
             Person currentPerson = queuePerson.remove();

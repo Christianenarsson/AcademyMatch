@@ -6,5 +6,5 @@ public enum Preference {
     HTMLCSS,
     UX,
     Databases,
-    PojectManagement
+    ProjectManagement
 }
