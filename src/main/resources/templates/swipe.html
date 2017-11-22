@@ -12,7 +12,7 @@
     <div id ="imgblock">
         <img id = "image" th:src ="${person.imgLink}"/>
     </div>
-    <h1 id = "namn" th:text = "${person.name}"> NAME OCH ÅLDER</h1>
+    <h1 id = "namn" th:text = "${person.name + ' ' + person.age}"> NAME OCH ÅLDER</h1>
     <h2 id= "klass" th:text = "${person.klass}" >JAVAKLASSEN</h2>
     <p id = "brodtxt" th:text = "${person.presentation}"> Här är det lite kort text om personen.</p>
 </div>

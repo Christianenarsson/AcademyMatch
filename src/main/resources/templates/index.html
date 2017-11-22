@@ -7,6 +7,13 @@
         <body>
             <div class = "huvudblock">
                 <h2 id = "startrubrik" >VÄLJ DINA FAVVISAR!</h2>
+                <div class="form-group row">
+                    <select class="form-control" id="preferences" name="preferences">
+                        <option th:each="pref : ${preferences}"
+                            th:value="${pref}"
+                            th:text="${pref}"/>
+                    </select>
+                </div>
                 <button id="startbtn" class = "btn">START</button>
             </div>
             <script type="text/javascript" src="/script/index.js"/>
