@@ -50,7 +50,7 @@ public class MatchController implements Commons{
     @ResponseBody
     public String start (HttpSession session) {
         if (session.getAttribute("persons") == null) {
-            session.setAttribute("persons", repository.createPool());
+            session.setAttribute("persons", repository.createPool((String) session.getAttribute("preference")));
             session.setAttribute("chosen", new ArrayList<Person>());
         }
         if (session.getAttribute("current") == null) {
