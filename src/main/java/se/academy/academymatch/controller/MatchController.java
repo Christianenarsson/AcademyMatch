@@ -3,9 +3,12 @@ package se.academy.academymatch.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import se.academy.academymatch.domain.Person;
+import se.academy.academymatch.domain.Preference;
 import se.academy.academymatch.repository.Repository;
 
 import javax.servlet.http.HttpSession;
@@ -25,7 +28,22 @@ public class MatchController {
 
     @GetMapping ("/")
     public ModelAndView index() {
-        return new ModelAndView("index");
+        List<Preference> preferences = new ArrayList<>();
+        preferences.add(Preference.Java);
+        preferences.add(Preference.JavaScript);
+        preferences.add(Preference.HTMLCSS);
+        preferences.add(Preference.UX);
+        preferences.add(Preference.Databases);
+        preferences.add(Preference.PojectManagement);
+
+        return new ModelAndView("index").addObject("preferences", preferences);
+    }
+
+    @PostMapping("/setPref")
+    @ResponseBody
+    public String setPref(HttpSession session, @RequestParam(value = "preference", defaultValue = "Java") String preference) {
+        session.setAttribute("preference", preference);
+        return "done";
     }
 
     @GetMapping ("/start")
