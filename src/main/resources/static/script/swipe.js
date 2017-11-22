@@ -1,9 +1,10 @@
 var noBtn = document.getElementById("nobtn");
 var yesBtn = document.getElementById("yesbtn");
-//var menuBtn = document.getElementById("menubtn");
+var menuBtn = document.getElementById("menubtn");
 var image = document.getElementById("image");
 var title = document.getElementById("namn");
 var brodtxt = document.getElementById("brodtxt");
+var chosenTxt = document.getElementById("chosen");
 var img;
 var name;
 var born;
@@ -12,16 +13,16 @@ var httpRequest;
 
 noBtn.addEventListener("click", swipeNo);
 yesBtn.addEventListener("click", swipeYes);
-//menuBtn.addEventListener("click", menu);
+menuBtn.addEventListener("click", menu);
 
 function menu() {
-
+    document.location.href = "/final";
 }
 
 function swipeNo() {
     httpRequest = new XMLHttpRequest();
     if (!httpRequest) {
-        alert('There was a problem with the request.');
+        console.log('There was a problem making the request.');
     }
     httpRequest.onreadystatechange = personController;
     httpRequest.open('GET', '/swipeNo', true);
@@ -50,9 +51,11 @@ function personController() {
                 born = pArray[1];
                 text = pArray[2];
                 img = pArray[3];
+                chosen = pArray[4];
                 title.innerHTML = name + " " + born;
                 image.src = img;
                 brodtxt.innerHTML = text;
+                chosenTxt.innerHTML = chosen;
             }
         } else {
             console.log('There was a problem receiving the request.');
