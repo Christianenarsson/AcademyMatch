@@ -6,6 +6,7 @@ import se.academy.academymatch.domain.Person;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -32,7 +33,7 @@ public class Repository {
                         (rs.getInt("id"),
                         rs.getString("firstname"),
                         rs.getString("lastname"),
-                        rs.getInt("born"),
+                        Calendar.getInstance().get(Calendar.YEAR)-rs.getInt("born"),
                         rs.getString("class"),
                         rs.getString("presentation"),
                         rs.getString("imglink"),
