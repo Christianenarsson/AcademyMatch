@@ -60,17 +60,11 @@ function personController() {
                 document.location.href = "/final";
             } else {
                 var json = JSON.parse(response);
-                name = json.name;
-                age = json.age;
-                klass = json.klass;
-                text = json.text;
-                img = json.img;
-                chosen = json.chosen;
-                title.innerHTML = name + " " + age;
-                image.src = img;
-                klassTxt.innerHTML = klass;
-                brodtxt.innerHTML = text;
-                chosenTxt.innerHTML = chosen;
+                title.innerHTML = json.name + " " + json.age;
+                image.src = json.img;
+                klassTxt.innerHTML = json.klass;
+                brodtxt.innerHTML = json.text;
+                chosenTxt.innerHTML = json.chosen;
             }
         } else {
             console.log('There was a problem receiving the request.');
