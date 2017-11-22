@@ -5,12 +5,14 @@ var image = document.getElementById("image");
 var title = document.getElementById("namn");
 var brodtxt = document.getElementById("brodtxt");
 var chosenTxt = document.getElementById("chosen");
+var klassTxt = document.getElementById("klass");
 var audio = new Audio('/sounds/waterdrop.wav');
 var canSwipe = true;
 var img;
 var name;
 var age;
 var text;
+var klass;
 var httpRequest;
 
 noBtn.addEventListener("click", swipeNo);
@@ -53,18 +55,20 @@ function swipeYes() {
 function personController() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
         if (httpRequest.status === 200) {
-            var pString = httpRequest.responseText;
-            var pArray = pString.split(";");
-            if (pArray[0] == "final") {
+            var response = httpRequest.responseText;
+            if (response == "final") {
                 document.location.href = "/final";
             } else {
-                name = pArray[0];
-                age = pArray[1];
-                text = pArray[2];
-                img = pArray[3];
-                chosen = pArray[4];
+                var json = JSON.parse(response);
+                name = json.name;
+                age = json.age;
+                klass = json.klass;
+                text = json.text;
+                img = json.img;
+                chosen = json.chosen;
                 title.innerHTML = name + " " + age;
                 image.src = img;
+                klassTxt.innerHTML = klass;
                 brodtxt.innerHTML = text;
                 chosenTxt.innerHTML = chosen;
             }
