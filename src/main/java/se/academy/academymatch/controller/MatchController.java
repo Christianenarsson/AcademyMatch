@@ -28,15 +28,15 @@ public class MatchController implements Commons{
 
     @GetMapping ("/")
     public ModelAndView index() {
-        List<String> commons = new ArrayList<>();
-        commons.add(Java);
-        commons.add(JavaScript);
-        commons.add(HTMLCSS);
-        commons.add(UX);
-        commons.add(Databases);
-        commons.add(ProjectManagement);
+        List<String> preferences = new ArrayList<>();
+        preferences.add(Java);
+        preferences.add(JavaScript);
+        preferences.add(HTMLCSS);
+        preferences.add(UX);
+        preferences.add(Databases);
+        preferences.add(ProjectManagement);
 
-        return new ModelAndView("index").addObject("commons", commons);
+        return new ModelAndView("index").addObject("preferences", preferences);
     }
 
     @PostMapping("/setPref")
