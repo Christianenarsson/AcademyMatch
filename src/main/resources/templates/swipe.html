@@ -22,13 +22,12 @@
         </div>
         <h1 id="namn" th:text="${person.name + ' ' + person.age}"> NAME OCH ÅLDER</h1>
         <h2 id="klass" th:text="${person.klass}">JAVAKLASSEN</h2>
+        <div id="stroke"></div>
         <p id="brodtxt" th:text="${person.presentation}"> Här är det lite kort text om personen.</p>
-        <h3>Preferenser:</h3>
-        <ol>
-            <li id="pref1txt" th:text="${person.preference1}"></li>
-            <li id="pref2txt" th:text="${person.preference2}"></li>
-            <li id="pref3txt" th:text="${person.preference3}"></li>
-        </ol>
+        <h2>Preferenser</h2>
+            <p id="pref1txt" th:text="${person.preference1}"></p>
+            <p id="pref2txt" th:text="${person.preference2}"></p>
+            <p id="pref3txt" th:text="${person.preference3}"></p>
         <div id="buttonboarder">
             <button class="btn choose" id="nobtn">X</button>
             <button class="btn choose" id="yesbtn">✓</button>

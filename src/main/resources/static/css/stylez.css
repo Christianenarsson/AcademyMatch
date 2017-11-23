@@ -22,16 +22,28 @@ body {
     max-height: 40px;
 }
 
+#pref1txt, #pref2txt, #pref3txt {
+    margin: 0px;
+}
+
+p {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    padding-top:0px;
+
+}
+
 
 #namn {
     font-family: 'Montserrat', sans-serif;
-    color: 6a859c;
+    color: #6a859c;
     font-size: 20px;
     line-height: 20px;
     margin-bottom: 0px;
 }
 
-#klass {
+h2 {
     font-family: 'Montserrat', sans-serif;
     color: rgb(23, 173, 76);
     font-size: 16px;
@@ -39,6 +51,11 @@ body {
     margin-top: 5px;
 }
 
+.nameList {
+    font-family: 'Montserrat', sans-serif;
+    color: #6a859c;
+    font-size: 16px;
+}
 #stroke {
     height: 2px;
     width: 70px;
@@ -57,7 +74,15 @@ button {
     border-radius: 50px;
     color: rgb(23, 173, 76);
     border-color: rgb(23, 173, 76);
+    cursor: pointer;
 }
+
+button:hover {
+    border-color: green;
+    color: green;
+}
+
+
 
 #countbtn {
     margin-right: 40px;
@@ -70,10 +95,15 @@ button {
     border-radius: 50px;
     color: white;
     border-color: white;
+    cursor: pointer;
+}
+
+#countbtn:hover {
+    background-color: rgb(31, 232, 102);
 }
 
 
-#sendbtn {
+#sendbtn, #backbtn {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     width: 85px;
@@ -82,6 +112,12 @@ button {
     border-radius: 50px;
     color: rgb(23, 173, 76);
     border-color: rgb(23, 173, 76);
+    cursor: pointer;
+}
+
+#sendbtn:hover, #backbtn:hover {
+    border-color: green;
+    color: green;
 }
 
 #imgblock {
@@ -108,7 +144,7 @@ ul {
     padding-top: 40px;
     list-style-type: none;
     font-family: 'Montserrat', sans-serif;
-    color: 6a859c;
+    color: #6a859c;
 }
 
 

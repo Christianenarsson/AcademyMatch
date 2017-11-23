@@ -21,6 +21,20 @@ body {
     margin-bottom: 40px;
 }
 
+select {
+    font-family: 'Montserrat', sans-serif;
+    background: none;
+    color: white;
+    border-color: white;
+    border-radius: 2px;
+}
+
+option {
+    background-color: transparent;
+    color: rgb(23, 173, 76);
+}
+
+
 button {
     margin-top: 80px;
     font-family: 'Montserrat', sans-serif;
@@ -31,4 +45,9 @@ button {
     border-radius: 50px;
     color:white;
     border-color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(31, 232, 102);
 }
