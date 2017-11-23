@@ -1,6 +1,7 @@
-window.addEventListener('keypress', function (e) {
-    var key = e.which || e.keyCode;
-    if (key === 32) { 
-        document.location.href = "/";
-    }
-});
+var startBtn = document.getElementById("startbtn");
+
+startBtn.addEventListener("click", start);
+
+function start() {
+    document.location.href = "/";
+}
