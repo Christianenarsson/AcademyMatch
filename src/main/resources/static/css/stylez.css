@@ -19,7 +19,8 @@ body {
 }
 
 #logo {
-    max-height: 40px;
+    max-height: 25px;
+    margin-left: 40px;
 }
 
 #pref1txt, #pref2txt, #pref3txt {
