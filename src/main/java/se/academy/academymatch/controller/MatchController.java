@@ -39,6 +39,11 @@ public class MatchController implements Commons{
         return new ModelAndView("index").addObject("preferences", preferences);
     }
 
+    @GetMapping ("/login")
+    public ModelAndView login() {
+        return new ModelAndView("login");
+    }
+
     @PostMapping("/setPref")
     @ResponseBody
     public String setPref(HttpSession session, @RequestParam(value = "preference", defaultValue = "Java") String preference) {
