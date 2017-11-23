@@ -53,7 +53,7 @@ public class MatchController implements Commons{
             session.setAttribute("persons", repository.createPool((String) session.getAttribute("preference")));
             session.setAttribute("chosen", new ArrayList<Person>());
         }
-        if (session.getAttribute("current") == null) {
+        if (session.getAttribute("current") == null && !((Queue<Person>) session.getAttribute("persons")).isEmpty()) {
             Queue<Person> persons = (Queue<Person>) session.getAttribute("persons");
             session.setAttribute("current", persons.remove());
         }
