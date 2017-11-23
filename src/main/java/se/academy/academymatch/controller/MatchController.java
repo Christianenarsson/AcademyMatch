@@ -132,7 +132,9 @@ public class MatchController implements Commons {
             Person currentPerson = queuePerson.remove();
             session.setAttribute("current", currentPerson);
 
-            returncurrentPerson = "{ \"name\": \"" + currentPerson.getName() + "\", \"age\": \"" + currentPerson.getAge() + "\", \"klass\": \"" + currentPerson.getKlass() + "\", \"text\": \"" + currentPerson.getPresentation() + "\", \"img\": \"" + currentPerson.getImgLink() + "\", \"chosen\": \"" + ((List<Person>) session.getAttribute("chosen")).size() + "\", \"preference1\": \"" + currentPerson.getPreference1() + "\" , \"preference2\": \"" + currentPerson.getPreference2() + "\" , \"preference3\": \"" + currentPerson.getPreference3() + "\" }";
+            
+            returncurrentPerson = "{ \"name\": \"" + currentPerson.getName() + "\", \"age\": \"" + currentPerson.getAge() + "\", \"klass\": \"" + currentPerson.getKlass() + "\", \"text\": \"" + currentPerson.getPresentation() + "\", \"img\": \"" + currentPerson.getImgLink() + "\", \"chosen\": \"" + ((List<Person>) session.getAttribute("chosen")).size() + "\", \"preference1\": \"" +currentPerson.getPreference1()+ "\" , \"preference2\": \"" +currentPerson.getPreference2()+ "\" , \"preference3\": \"" +currentPerson.getPreference3()+ "\" , \"profilelink\": \"" +currentPerson.getProfilelink() + "\"  }";
+
         }
         return returncurrentPerson;
     }

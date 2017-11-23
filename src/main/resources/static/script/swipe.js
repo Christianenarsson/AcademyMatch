@@ -9,6 +9,7 @@ var klassTxt = document.getElementById("klass");
 var pref1txt = document.getElementById("pref1txt");
 var pref2txt = document.getElementById("pref2txt");
 var pref3txt = document.getElementById("pref3txt");
+var proflinktxt = document.getElementById("proflinktxt");
 var audio = new Audio('/sounds/waterdrop.wav');
 var canSwipe = true;
 var img;
@@ -71,6 +72,7 @@ function personController() {
                 pref1txt.innerHTML=json.preference1;
                 pref2txt.innerHTML=json.preference2;
                 pref3txt.innerHTML=json.preference3;
+                proflinktxt.innerHTML=json.profilelink;
 
             }
         } else {
