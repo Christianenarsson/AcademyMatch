@@ -1,13 +1,4 @@
-body {
-    overflow: hidden
-}
-
-.huvudblock {
-    margin: auto;
-}
-    
 .loading {
-    margin-left: 40px;
     margin-top: 60px;
     background-color: #FFF;
     width: 100%;
