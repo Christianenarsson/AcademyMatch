@@ -3,19 +3,29 @@
 <head>
     <title>AcademyMatch</title>
     <meta charset="utf8"/>
-    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" media="screen" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Rasa" rel="stylesheet">
+    
 </head>
 <body>
     <div class = "huvudblock"> 
-    <div id ="imgblock">
-        <img id = "image" th:src ="${person.imgLink}"/>
+        <div id = "logoblock">
+                 <img id = "image" src = "C:\Users\Administrator\Documents\Skola\Vecka 9\GitGrupp\AcademyMatch\Logo\academy_logo_w_tag_RGB_Verdana_white.png"/>
+        </div>
+        <div id ="imgblock">
+           <img id = "image" th:src ="${person.imgLink}"/>
+        </div>
+        <h1 id = "namn" th:text = "${person.name}"> NAME OCH ÅLDER</h1>
+        <h2 id= "klass" th:text = "${person.klass}" >JAVAKLASSEN</h2>
+        <div id = "stroke"></div>
+        <p id = "brodtxt" th:text = "${person.presentation}"> Här är det lite kort text om personen. öalks dfjölaksjfökajsdöfk jöaklsdjfölkasjödkf jöalksjdöf alsdfjöalsdkfjöalskdjföklaskdfjölasjdöflka jsdl fj
+            öslkdfj öalskdfjöalskdjföalskjdfölaksjdöfkjaöskldfjjdfjöaljd fökajöskdfj öklajdöflkjalskdjf lasjd fölasdjkfö asdf.
+        </p>
     </div>
-    <h1 id = "namn" th:text = "${person.name}"> NAME OCH ÅLDER</h1>
-    <h2 id= "klass" th:text = "${person.klass}" >JAVAKLASSEN</h2>
-    <p id = "brodtxt" th:text = "${person.presentation}"> Här är det lite kort text om personen.</p>
-</div>
-<button class = "btn nobtn">NO</button>
-<button class = "btn yesbtn">YES</button>
+    <div id="buttonboarder">
+        <button class = "btn" id="nobtn">X</button>
+        <button class = "btn" id="yesbtn">✓</button>
+    </div>
 <script type="text/javascript" src="../script/swipe.js"/>
 </body>
 </html>
