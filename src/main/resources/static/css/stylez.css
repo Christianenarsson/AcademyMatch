@@ -19,8 +19,9 @@ body {
 }
 
 #logo {
-    width: 90px;
+    max-height: 40px;
 }
+
 
 #namn {
     font-family: 'Montserrat', sans-serif;
