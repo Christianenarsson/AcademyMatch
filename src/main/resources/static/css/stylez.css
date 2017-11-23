@@ -19,7 +19,8 @@ body {
 }
 
 #logo {
-    max-height: 40px;
+    max-height: 25px;
+    margin-left: 40px;
 }
 
 #pref1txt, #pref2txt, #pref3txt {
@@ -151,13 +152,24 @@ ul {
 a{
     display: block;
     font-family: 'Montserrat', sans-serif;
-    color: #6a859c;
+    color: rgb(23, 173, 76);
     font-size: 16px;
+    text-decoration: none;
+
+}
+
+a:hover {
+    color: #6a859c;
+    transition:color 2s linear;
+    text-decoration: underline;
 }
 
 #alot {
     max-height: 200px;
 }
 
+#names {
+    margin-top: 20px;
+}
  
 
