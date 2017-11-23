@@ -1,6 +1,6 @@
 var noBtn = document.getElementById("nobtn");
 var yesBtn = document.getElementById("yesbtn");
-var menuBtn = document.getElementById("menubtn");
+var countbtn = document.getElementById("countbtn");
 var image = document.getElementById("image");
 var title = document.getElementById("namn");
 var brodtxt = document.getElementById("brodtxt");
@@ -20,7 +20,7 @@ var httpRequest;
 
 noBtn.addEventListener("click", swipeNo);
 yesBtn.addEventListener("click", swipeYes);
-menuBtn.addEventListener("click", menu);
+countbtn.addEventListener("click", menu);
 
 function menu() {
     document.location.href = "/final";
