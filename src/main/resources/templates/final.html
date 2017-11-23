@@ -13,11 +13,9 @@
         <div id="logoblock">
             <img id="logo" src="/images/academy_logo_w_tag_RGB_Verdana_white_small.png" />
         </div>
-
         <div id="names">
         <a target="_blank" class="nameList" th:each="person : ${chosen}" th:text="${person.name}" th:href="${person.profilelink}" ></a>
         </div>
-
         <p id="txt"></p>
         <div id="stroke"></div>
         <p id="endtxt">Roligt att du hittade några kandidater du vill träffa. Klicka på sänd så skickas ett mail med kandidaterna
