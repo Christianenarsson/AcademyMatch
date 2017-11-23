@@ -38,12 +38,6 @@ body {
     margin-top: 5px;
 }
 
-.nameList {
-    font-family: 'Montserrat', sans-serif;
-    color: 6a859c;
-    font-size: 16px;
-}
-
 #stroke {
     height: 2px;
     width: 70px;
@@ -116,5 +110,11 @@ ul {
     color: 6a859c;
 }
 
- 
+/*.nameList*/
+a{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    color: 6a859c;
+    font-size: 16px;
+}
 

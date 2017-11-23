@@ -4,8 +4,8 @@
 <head>
     <title>AcademyMatch</title>
     <meta charset="utf8" />
-    <link rel="stylesheet" type="text/css" href="/css/stylez.css" media="screen" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Rasa" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/css/stylez.css" media="screen" />
 </head>
 
 <body>
@@ -13,7 +13,9 @@
         <div id="logoblock">
             <img id="logo" src="/images/academy_logo_w_tag_RGB_Verdana_white.png" />
         </div>
-        <p class="nameList" th:each="person : ${chosen}" th:text="${person.name}"></p>
+
+        <a class="nameList" th:each="person : ${chosen}" th:text="${person.name}" th:href="${person.profilelink}" ></a>
+
         <p id="txt"></p>
         <div id="stroke"></div>
         <p id="endtxt">Roligt att du hittade några kandidater du vill träffa. Klicka på sänd så skickas ett mail med kandidaternas namn

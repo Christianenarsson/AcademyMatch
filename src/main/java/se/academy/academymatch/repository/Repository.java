@@ -47,7 +47,8 @@ public class Repository {
                                     rs.getString("status"),
                                     rs.getString("preference1"),
                                     rs.getString("preference2"),
-                                    rs.getString("preference3"));
+                                    rs.getString("preference3"),
+                                    rs.getString("profilelink"));
                     pool.add(person);
                 }
 
@@ -90,7 +91,8 @@ public class Repository {
                                 rs.getString("status"),
                                 rs.getString("preference1"),
                                 rs.getString("preference2"),
-                                rs.getString("preference3"));
+                                rs.getString("preference3"),
+                                rs.getString("profilelink"));
                 pool.add(person);
             }
 
