@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/html">
+
 <head>
     <title>AcademyMatch</title>
-    <meta charset="utf8"/>
+    <meta charset="utf8" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" media="screen" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Rasa" rel="stylesheet">
 </head>
+
 <body>
-    <div class = "huvudblock"> 
+    <div class="huvudblock">
+        <div id="logoblock">
+            <img id="image" src="/images/academy_logo_w_tag_RGB_Verdana_white.png" />
+        </div>
         <button class="btn hamburgler" id="menubtn">-</button>
         <p id="chosen" th:text="${nrChosen}">0</p>
-    <div id ="imgblock">
-        <img id = "image" src="/images/alot.png"/>
+        <div id="imgblock">
+            <img id="image" src="/images/alot.png" />
+        </div>
+        <h1> Ingen kvar</h1>
+        <h2>Tryck på menyn för att komma tillbaka till listan</h2>
     </div>
-    <h1> Ingen kvar</h1>
-    <h2>Tryck på menyn för att komma tillbaka till listan</h2>
-</div>
-<button class = "btn" id="nobtn">NO</button>
-<button class = "btn" id="yesbtn">YES</button>
-<script type="text/javascript" src="/script/noswipe.js"/>
+    <button class="btn" id="nobtn">NO</button>
+    <button class="btn" id="yesbtn">YES</button>
+    <script type="text/javascript" src="/script/noswipe.js" />
 </body>
+
 </html>

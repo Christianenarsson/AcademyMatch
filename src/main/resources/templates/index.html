@@ -1,25 +1,26 @@
 <html>
-        <head>
-            
-            <title>AcademyMatch</title>
-            <meta charset="utf8"/>
-            <link rel="stylesheet" type="text/css" href="/css/styleintro.css" media="screen" />
-            <link href="https://fonts.googleapis.com/css?family=Montserrat|Rasa" rel="stylesheet">
-        </head>
-        <body>
-            <div class = "huvudblock">
-                <div id ="imgblock">
-                    <img id = "image" src = "C:\Users\Administrator\Documents\Skola\Vecka 9\GitGrupp\AcademyMatch\Logo\academy_logo_w_tag_RGB_Verdana_white.png"/>
-                </div>
-                              <div class="form-group row">
-                    <select class="form-control" id="preferences" name="preferences">
-                        <option th:each="pref : ${preferences}"
-                            th:value="${pref}"
-                            th:text="${pref}"/>
-                    </select>
-                </div>
-                <button class = "btn" id = "startbtn">START</button>
-            </div>
-            <script type="text/javascript" src="/script/index.js"/>
-        </body>
-    </html> 
+
+<head>
+
+    <title>AcademyMatch</title>
+    <meta charset="utf8" />
+    <link rel="stylesheet" type="text/css" href="/css/styleintro.css" media="screen" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Rasa" rel="stylesheet">
+</head>
+
+<body>
+    <div class="huvudblock">
+        <div id="imgblock">
+            <img id="image" src="/images/academy_logo_w_tag_RGB_Verdana_white.png" />
+        </div>
+        <div class="form-group row">
+            <select class="form-control" id="preferences" name="preferences">
+                <option th:each="pref : ${preferences}" th:value="${pref}" th:text="${pref}" />
+            </select>
+        </div>
+        <button class="btn" id="startbtn">START</button>
+    </div>
+    <script type="text/javascript" src="/script/index.js" />
+</body>
+
+</html>

@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/html">
-    <head>
-         <title>AcademyMatch</title>
-            <meta charset="utf8"/>
-            <link rel="stylesheet" type="text/css" href="/css/style.css" media="screen" />
-            <link href="https://fonts.googleapis.com/css?family=Montserrat|Rasa" rel="stylesheet">
-    </head>
-    <body>
-        <div class = "huvudblock">
-                <div id = "logoblock">
-                        <img id = "image" src = "C:\Users\Administrator\Documents\Skola\Vecka 9\GitGrupp\AcademyMatch\Logo\academy_logo_w_tag_RGB_Verdana_white.png"/>
-               </div>
-            <ul>
-                <li th:each = "person : ${chosen}" th:text="${person.name}"></li>
-            </ul>
-            <p id="txt"></p>
-            <div id = "stroke"></div>
-            <p id ="endtxt">Roligt att du hittade några kandidater du vill träffa. Klicka på sänd så skickas ett mail med kandidaternas namn till din kontakt på Academic Work.</p>
-            <div class="btn">
-              <button id="backbtn" class = "btn">BACK</button>
-            <button id = "sendbtn">SEND</button>
+
+<head>
+    <title>AcademyMatch</title>
+    <meta charset="utf8" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" media="screen" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Rasa" rel="stylesheet">
+</head>
+
+<body>
+    <div class="huvudblock">
+        <div id="logoblock">
+            <img id="image" src="/images/academy_logo_w_tag_RGB_Verdana_white.png" />
         </div>
+        <ul>
+            <li th:each="person : ${chosen}" th:text="${person.name}"></li>
+        </ul>
+        <p id="txt"></p>
+        <div id="stroke"></div>
+        <p id="endtxt">Roligt att du hittade några kandidater du vill träffa. Klicka på sänd så skickas ett mail med kandidaternas namn
+            till din kontakt på Academic Work.</p>
+        <div class="btn">
+            <button id="backbtn" class="btn">BACK</button>
+            <button id="sendbtn">SEND</button>
         </div>
-    <script type="text/javascript" src="/script/final.js"/>
-    </body>
-</html> 
+    </div>
+    <script type="text/javascript" src="/script/final.js" />
+</body>
+
+</html>
