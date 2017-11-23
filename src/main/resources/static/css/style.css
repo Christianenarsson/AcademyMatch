@@ -1,0 +1,99 @@
+body {
+    font-family: 'Rasa', serif;
+    color: rgb(70, 65, 65);
+
+}
+
+.huvudblock {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#logoblock {
+    background: linear-gradient(45deg, rgb(23, 173, 76), green);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#image {
+    width: 90px;
+}
+
+#namn {
+    font-family: 'Montserrat', sans-serif;
+    color: 6a859c;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 0px;
+}
+
+#klass {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(23, 173, 76);
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 5px;
+}
+
+#stroke {
+    height: 2px;
+    width: 70px;
+    background-color: grey;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    width: 60px;
+	height: 60px;
+    background: none;
+    border-radius: 50px;
+    color: rgb(23, 173, 76);
+    border-color: rgb(23, 173, 76);
+}
+
+#sendbtn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    width: 85px;
+	height: 85px;
+    background: none;
+    border-radius: 50px;
+    color: rgb(23, 173, 76);
+    border-color: rgb(23, 173, 76);
+}
+
+#imgblock {
+    padding-top: 20px;
+}
+
+#image2 {
+    width: 150px;
+    height: 168px;
+}
+
+#buttonboarder {
+    height: 75px;
+    padding: 5px;
+    padding-left: 80px;
+    padding-right: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    padding-top: 40px;
+    list-style-type: none;
+    font-family: 'Montserrat', sans-serif;
+    color: 6a859c;
+}
+
+ 
+
