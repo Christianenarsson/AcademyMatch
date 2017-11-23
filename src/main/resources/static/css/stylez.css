@@ -19,8 +19,9 @@ body {
 }
 
 #logo {
-    width: 90px;
+    max-height: 40px;
 }
+
 
 #namn {
     font-family: 'Montserrat', sans-serif;
@@ -110,11 +111,17 @@ ul {
     color: 6a859c;
 }
 
-/*.nameList*/
+
 a{
     display: block;
     font-family: 'Montserrat', sans-serif;
     color: 6a859c;
     font-size: 16px;
 }
+
+#alot {
+    max-height: 200px;
+}
+
+ 
 
