@@ -3,7 +3,7 @@
 <head>
     <title>AcademyMatch</title>
     <meta charset="utf8"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" media="screen" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Rasa" rel="stylesheet">
     
 </head>
@@ -12,20 +12,26 @@
         <div id = "logoblock">
                  <img id = "image" src = "C:\Users\Administrator\Documents\Skola\Vecka 9\GitGrupp\AcademyMatch\Logo\academy_logo_w_tag_RGB_Verdana_white.png"/>
         </div>
-        <div id ="imgblock">
-           <img id = "image" th:src ="${person.imgLink}"/>
-        </div>
-        <h1 id = "namn" th:text = "${person.name}"> NAME OCH ÅLDER</h1>
-        <h2 id= "klass" th:text = "${person.klass}" >JAVAKLASSEN</h2>
-        <div id = "stroke"></div>
-        <p id = "brodtxt" th:text = "${person.presentation}"> Här är det lite kort text om personen. öalks dfjölaksjfökajsdöfk jöaklsdjfölkasjödkf jöalksjdöf alsdfjöalsdkfjöalskdjföklaskdfjölasjdöflka jsdl fj
-            öslkdfj öalskdfjöalskdjföalskjdfölaksjdöfkjaöskldfjjdfjöaljd fökajöskdfj öklajdöflkjalskdjf lasjd fölasdjkfö asdf.
-        </p>
+              <button class="btn hamburgler" id="menubtn">-</button>
+        <p id="chosen" th:text="${nrChosen}">0</p>
+    <div id ="imgblock">
+        <img id = "image" th:src ="${person.imgLink}"/>
     </div>
+    <h1 id = "namn" th:text = "${person.name + ' ' + person.age}"> NAME OCH ÅLDER</h1>
+    <h2 id= "klass" th:text = "${person.klass}" >JAVAKLASSEN</h2>
+    <p id = "brodtxt" th:text = "${person.presentation}"> Här är det lite kort text om personen.</p>
+</div>
+    <h3>Preferenser:</h3>
+
+    <ol>
+        <li id= "pref1txt" th:text = "${person.preference1}" ></li>
+        <li id= "pref2txt" th:text = "${person.preference2}" ></li>
+        <li id= "pref3txt" th:text = "${person.preference3}" ></li>
+    </ol>
     <div id="buttonboarder">
         <button class = "btn" id="nobtn">X</button>
         <button class = "btn" id="yesbtn">✓</button>
     </div>
-<script type="text/javascript" src="../script/swipe.js"/>
+<script type="text/javascript" src="/script/swipe.js"/>
 </body>
 </html>
