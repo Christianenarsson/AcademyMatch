@@ -12,9 +12,10 @@ public class Person {
     private String preference1;
     private String preference2;
     private String preference3;
+    private String profilelink;
 
     
-    public Person(int id, String firstName, String lastName, int age, String klass, String presentation, String imgLink, String status, String preference1, String preference2, String preference3) {
+    public Person(int id, String firstName, String lastName, int age, String klass, String presentation, String imgLink, String status, String preference1, String preference2, String preference3, String profilelink) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -26,6 +27,15 @@ public class Person {
         this.preference1 = preference1;
         this.preference2 = preference2;
         this.preference3 = preference3;
+        this.profilelink = profilelink;
+    }
+
+    public String getProfilelink() {
+        return profilelink;
+    }
+
+    public void setProfilelink(String profilelink) {
+        this.profilelink = profilelink;
     }
 
     public String getPreference1() {
