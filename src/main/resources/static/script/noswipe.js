@@ -1,6 +1,8 @@
-var menuBtn = document.getElementById("menubtn");
+var countBtn = document.getElementById("countbtn");
+var backBtn = document.getElementById("backbtn");
 
-menuBtn.addEventListener("click", menu);
+countBtn.addEventListener("click", menu);
+backBtn.addEventListener("click", menu);
 
 function menu() {
     document.location.href = "/final";

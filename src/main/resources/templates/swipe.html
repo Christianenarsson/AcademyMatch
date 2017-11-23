@@ -5,7 +5,7 @@
     <title>AcademyMatch</title>
     <meta charset="utf8" />
     <link rel="stylesheet" type="text/css" href="/css/stylez.css" media="screen" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Rasa" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Rasa" rel="stylesheet" />
 
 </head>
 
@@ -13,7 +13,9 @@
     <div class="huvudblock">
         <div id="logoblock">
             <img id="logo" src="/images/academy_logo_w_tag_RGB_Verdana_white.png" />
-            <button class="btn hamburgler" id="countbtn"><span id="chosen" th:text="${nrChosen}">0</span></button>
+            <button class="btn hamburgler" id="countbtn">
+                <span id="chosen" th:text="${nrChosen}">0</span>
+            </button>
         </div>
         <div id="imgblock">
             <img id="image" th:src="${person.imgLink}" />
@@ -27,9 +29,9 @@
             <p id="pref2txt" th:text="${person.preference2}"></p>
             <p id="pref3txt" th:text="${person.preference3}"></p>
         <div id="buttonboarder">
-                <button class="btn choose" id="nobtn">X</button>
-                <button class="btn choose" id="yesbtn">✓</button>
-            </div>
+            <button class="btn choose" id="nobtn">X</button>
+            <button class="btn choose" id="yesbtn">✓</button>
+        </div>
     </div>
     <script type="text/javascript" src="/script/swipe.js" />
 </body>

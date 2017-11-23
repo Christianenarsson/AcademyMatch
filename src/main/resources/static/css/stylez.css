@@ -19,7 +19,7 @@ body {
 }
 
 #logo {
-    width: 90px;
+    max-height: 40px;
 }
 
 #pref1txt, #pref2txt, #pref3txt {
@@ -33,6 +33,7 @@ p {
     padding-top:0px;
 
 }
+
 
 #namn {
     font-family: 'Montserrat', sans-serif;
@@ -55,7 +56,6 @@ h2 {
     color: #6a859c;
     font-size: 16px;
 }
-
 #stroke {
     height: 2px;
     width: 70px;
@@ -145,6 +145,18 @@ ul {
     list-style-type: none;
     font-family: 'Montserrat', sans-serif;
     color: #6a859c;
+}
+
+
+a{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    color: 6a859c;
+    font-size: 16px;
+}
+
+#alot {
+    max-height: 200px;
 }
 
  

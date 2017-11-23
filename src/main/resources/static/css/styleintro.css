@@ -1,16 +1,24 @@
+html {
+    height: 100%;
+}
 body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background: linear-gradient(45deg, rgb(23, 173, 76), green);
 }
 
 .huvudblock {
-    margin-top: 200px;
+    margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
 #logo {
-    width: 70%;
+    max-width: 70%;
+    margin-bottom: 40px;
 }
 
 select {
