@@ -2,10 +2,7 @@ html {
     height: 100%;
 }
 body {
-    height: 100%;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    overflow:hidden;
     background: linear-gradient(45deg, rgb(23, 173, 76), green);
 }
 
@@ -17,7 +14,7 @@ body {
 }
 
 #logoblock {
-    padding-top: 100px;
+    padding-top: 22%;
 }
 
 #logo {
@@ -31,6 +28,8 @@ select {
     color: white;
     border-color: white;
     border-radius: 2px;
+    width: 200px;
+    height: 30px;
 }
 
 option {
@@ -40,7 +39,7 @@ option {
 
 
 button {
-    margin-top: 80px;
+    margin-top: 19%;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     width: 85px;

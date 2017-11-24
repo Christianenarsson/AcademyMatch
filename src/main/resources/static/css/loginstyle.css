@@ -1,19 +1,27 @@
-.form {
+form {
     /*background: white;*/
     max-width: 360px;
     margin: auto;
-    margin-top: 45px;
-    padding: 45px;
     text-align: center;
+    padding-left: 13%;
+    padding-right: 13%;
+    color:white;
     /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
   }
-  .form input {
+
+input {
     outline: 0;
-    background: #f2f2f2;
     width: 100%;
-    border: 0;
+    border: 2;
     margin: 0 0 15px;
-    padding: 15px;
+    padding: 12px;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 12px;
+      font-family: 'Montserrat', sans-serif;
+      background: none;
+      color: white;
+      border-color: white;
+      border-radius: 2px;
+
   }
+
