@@ -9,6 +9,8 @@ import se.academy.academymatch.domain.Person;
 import se.academy.academymatch.domain.User;
 import se.academy.academymatch.repository.Repository;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,13 +42,25 @@ public class MatchController implements Commons {
 
     @PostMapping("/loginSubmit")
     public ModelAndView loginSubmit(@ModelAttribute User user, HttpSession session) {
-        if (repository.login(user.getUsername(), user.getPassword())) {
+        String userclass = repository.login(user.getUsername(), user.getPassword());
+        if (!userclass.isEmpty()) {
+            user.setUserClass(userclass);
             session.setAttribute("username", user.getUsername());
-            session.setAttribute("userClass", "kund");
+            session.setAttribute("userClass", user.getUserClass());
+            System.out.println(user.getUserClass());
             return getIndex();
         } else {
             return new ModelAndView("login").addObject("failedTxt", "Wrong username or password.");
         }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session, HttpServletResponse res) {
+        session.invalidate();
+        Cookie cookie = new Cookie("jsessionid", "");
+        cookie.setMaxAge(0);
+        res.addCookie(cookie);
+        return "login";
     }
 
     @PostMapping("/setPref")

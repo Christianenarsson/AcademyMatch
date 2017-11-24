@@ -112,7 +112,7 @@ public class Repository {
 
     }
 
-    public boolean login(String username, String password) {
+    public String login(String username, String password) {
         Connection dbconn = null;
         PreparedStatement sth;
         String user = "";
@@ -129,7 +129,7 @@ public class Repository {
             sth.setString(2, password);
             ResultSet rs = sth.executeQuery();
             if (rs.next()) {
-                return true;
+                return rs.getString("userclass");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -142,6 +142,6 @@ public class Repository {
                     e.printStackTrace();
                 }
         }
-        return false;
+        return "";
     }
 }
