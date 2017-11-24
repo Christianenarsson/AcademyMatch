@@ -39,20 +39,23 @@ function listController() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
         if (httpRequest.status === 200) {
             var response = httpRequest.responseText;
-            rArray = response.split(";");
-            for (var i = 0; i < rArray.length; i++) {
-                sArray = rArray[i].split(",");
-                var s = document.createElement("div");
-                var a = document.createElement('a');
-                a.setAttribute("href", sArray[1]);
-                a.innerHTML = sArray[0];
-                var button = document.createElement("button");
-                button.innerHTML = 'X';
-                button.classList.add("removeBtn");
-                button.id = i;
-                s.appendChild(a);
-                s.appendChild(button);
-                namesElement.appendChild(s);
+            if (response != "empty") {
+                console.log(response)
+                rArray = response.split(";");
+                for (var i = 0; i < rArray.length; i++) {
+                    sArray = rArray[i].split(",");
+                    var s = document.createElement("div");
+                    var a = document.createElement('a');
+                    a.setAttribute("href", sArray[1]);
+                    a.innerHTML = sArray[0];
+                    var button = document.createElement("button");
+                    button.innerHTML = 'X';
+                    button.classList.add("removeBtn");
+                    button.id = i;
+                    s.appendChild(a);
+                    s.appendChild(button);
+                    namesElement.appendChild(s);
+                }
             }
         } else {
             console.log('There was a problem receiving the request.');
@@ -71,7 +74,8 @@ function handleClick(event) {
                 send();
             } else if (element == backBtn) {
                 back();
-            } else { }
+            } else {
+            }
             remove(element);
         }
         break;

@@ -126,15 +126,24 @@ public class MatchController implements Commons {
     @ResponseBody
     public String finalList(HttpSession session) {
         StringBuilder response = new StringBuilder();
-        List<Person> chosen = (List<Person>) session.getAttribute("chosen");
-        for (Person p : chosen) {
-            response.append(p.getName());
-            response.append(",");
-            response.append(p.getProfilelink());
-            response.append(";");
+        if (session.getAttribute("chosen") != null) {
+            List<Person> chosen = (List<Person>) session.getAttribute("chosen");
+            if (chosen.isEmpty()) {
+                return "empty";
+            }
+            for (Person p : chosen) {
+                response.append(p.getName());
+                response.append(",");
+                response.append(p.getProfilelink());
+                response.append(";");
+            }
+            if (response.length() > 0) {
+                response.deleteCharAt(response.length() - 1);
+            }
+            return response.toString();
+        } else {
+            return "empty";
         }
-        response.deleteCharAt(response.length() - 1);
-        return response.toString();
     }
 
     @GetMapping("/finalRemove")
