@@ -112,4 +112,36 @@ public class Repository {
 
     }
 
+    public boolean login(String username, String password) {
+        Connection dbconn = null;
+        PreparedStatement sth;
+        String user = "";
+        String pass = "";
+        String query =
+                "SELECT  *" +
+                        "FROM Academy_Projekt2.dbo.[user] " +
+                        "WHERE username = ? AND password = ?";
+
+        try {
+            dbconn = dataSource.getConnection();
+            sth = dbconn.prepareStatement(query);
+            sth.setString(1, username);
+            sth.setString(2, password);
+            ResultSet rs = sth.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if(dbconn!=null)
+                try {
+                    dbconn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+        return false;
+    }
 }
