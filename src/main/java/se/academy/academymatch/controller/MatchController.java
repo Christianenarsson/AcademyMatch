@@ -55,12 +55,12 @@ public class MatchController implements Commons {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session, HttpServletResponse res) {
+    public ModelAndView logout(HttpSession session, HttpServletResponse res) {
         session.invalidate();
         Cookie cookie = new Cookie("jsessionid", "");
         cookie.setMaxAge(0);
         res.addCookie(cookie);
-        return "login";
+        return login();
     }
 
     @PostMapping("/setPref")

@@ -1,6 +1,7 @@
 var noBtn = document.getElementById("nobtn");
 var yesBtn = document.getElementById("yesbtn");
 var countbtn = document.getElementById("countbtn");
+var logoutbtn = document.getElementById("logoutbtn");
 var image = document.getElementById("image");
 var title = document.getElementById("namn");
 var brodtxt = document.getElementById("brodtxt");
@@ -22,6 +23,7 @@ noBtn.addEventListener("click", swipeNo);
 yesBtn.addEventListener("click", swipeYes);
 countbtn.addEventListener("click", menu);
 chosenTxt.addEventListener("click", menu);
+logoutbtn.addEventListener("click",logOut);
 
 function menu() {
     document.location.href = "/final";
@@ -77,6 +79,10 @@ function personController() {
             console.log('There was a problem receiving the request.');
         }
     }
+}
+
+function logOut() {
+    document.location.href = "/logout";
 }
 
 function swipable() {

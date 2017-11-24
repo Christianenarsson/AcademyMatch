@@ -128,10 +128,10 @@ button:hover {
     width: 25px;
     height: 25px;
     background: none;
-    border-radius: 50px;
     color: rgb(23, 173, 76);
-    border-color: rgb(23, 173, 76);
     cursor: pointer;
+    margin-left: 10px;
+    border: none;
 }
 
 #logoutpic {
@@ -182,7 +182,7 @@ ul {
 
 
 a{
-    display: block;
+    display: inline-block;
     font-family: 'Montserrat', sans-serif;
     color: rgb(23, 173, 76);
     font-size: 16px;
