@@ -40,7 +40,7 @@ public class MatchController implements Commons {
 
     @PostMapping("/loginSubmit")
     public ModelAndView loginSubmit(@ModelAttribute User user, HttpSession session) {
-        if (user.getPassword() != null) {
+        if (repository.login(user.getUsername(), user.getPassword())) {
             session.setAttribute("username", user.getUsername());
             session.setAttribute("userClass", "kund");
             return getIndex();
@@ -104,8 +104,35 @@ public class MatchController implements Commons {
             return login();
         } else {
             List<Person> chosen = (List<Person>) session.getAttribute("chosen");
-            return new ModelAndView("final").addObject("chosen", chosen);
+            return new ModelAndView("final");
         }
+    }
+
+    @GetMapping("/finalGetList")
+    @ResponseBody
+    public String finalList(HttpSession session) {
+        StringBuilder response = new StringBuilder();
+        List<Person> chosen = (List<Person>) session.getAttribute("chosen");
+        for (Person p: chosen) {
+            response.append(p.getName());
+            response.append(";");
+            response.append(p.getProfilelink());
+            response.append(":");
+        }
+        //response.deleteCharAt(response.length() - 1);
+        return response.toString();
+    }
+
+    @PostMapping("/final")
+    public ModelAndView removeFromList(@RequestParam String name, HttpSession session) {
+        List<Person> chosen = (List<Person>) session.getAttribute("chosen");
+        for (int i = chosen.size() - 1; i >= 0; i--) {
+            if (chosen.get(i).getName().equals(name)) {
+                chosen.remove(i);
+            }
+        }
+
+        return finalpage(session);
     }
 
     @GetMapping("/loading")
@@ -132,8 +159,8 @@ public class MatchController implements Commons {
             Person currentPerson = queuePerson.remove();
             session.setAttribute("current", currentPerson);
 
-            
-            returncurrentPerson = "{ \"name\": \"" + currentPerson.getName() + "\", \"age\": \"" + currentPerson.getAge() + "\", \"klass\": \"" + currentPerson.getKlass() + "\", \"text\": \"" + currentPerson.getPresentation() + "\", \"img\": \"" + currentPerson.getImgLink() + "\", \"chosen\": \"" + ((List<Person>) session.getAttribute("chosen")).size() + "\", \"preference1\": \"" +currentPerson.getPreference1()+ "\" , \"preference2\": \"" +currentPerson.getPreference2()+ "\" , \"preference3\": \"" +currentPerson.getPreference3()+ "\" , \"profilelink\": \"" +currentPerson.getProfilelink() + "\"  }";
+
+            returncurrentPerson = "{ \"name\": \"" + currentPerson.getName() + "\", \"age\": \"" + currentPerson.getAge() + "\", \"klass\": \"" + currentPerson.getKlass() + "\", \"text\": \"" + currentPerson.getPresentation() + "\", \"img\": \"" + currentPerson.getImgLink() + "\", \"chosen\": \"" + ((List<Person>) session.getAttribute("chosen")).size() + "\", \"preference1\": \"" + currentPerson.getPreference1() + "\" , \"preference2\": \"" + currentPerson.getPreference2() + "\" , \"preference3\": \"" + currentPerson.getPreference3() + "\" , \"profilelink\": \"" + currentPerson.getProfilelink() + "\"  }";
 
         }
         return returncurrentPerson;
